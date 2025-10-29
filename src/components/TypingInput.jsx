@@ -1,66 +1,40 @@
-// components/TypingInput.js
 import React, { useState, useEffect } from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
 
-// =========================================================================
-// 1. Definisikan Audio Objects di luar komponen
-// =========================================================================
-// Pastikan path './assets/...' ini benar di struktur folder proyek Anda
-const correctSound = new Audio('../assets/ohmygod.mp3'); // Suara Benar/Sempurna
-const errorSound = new Audio('../assets/wrong.mp3');   // Suara Salah/Error
+const correctSound = new Audio('../assets/ohmygod.mp3'); 
+const errorSound = new Audio('../assets/wrong.mp3');  
 
-// =========================================================================
-// 2. Gunakan Objek Audio untuk Membuat Fungsi Pemutar Suara ASLI
-// =========================================================================
+
 const playCorrectSound = () => {
-    // Memastikan suara diputar dari awal setiap kali dipanggil
     correctSound.currentTime = 0;
     correctSound.play().catch(e => console.error("Error playing correct sound:", e));
-    // Kita tidak lagi perlu console.log di sini karena kita ingin suaranya keluar
 };
 
 const playErrorSound = () => {
-    // Memastikan suara diputar dari awal setiap kali dipanggil
     errorSound.currentTime = 0;
     errorSound.play().catch(e => console.error("Error playing error sound:", e));
-    // Kita tidak lagi perlu console.log di sini
+
 };
-// =========================================================================
-
-
 export default function TypingInput({ onSubmit, targetText }) {
   const [input, setInput] = useState("");
   const [typedText, setTypedText] = useState("");
-  const [submitStatus, setSubmitStatus] = useState(null); // 'correct' | 'error' | null
+  const [submitStatus, setSubmitStatus] = useState(null); 
 
-  // =========================================================================
-  // LOGIC: Memutar Suara Setelah Status Submit Diperbarui
-  // =========================================================================
   useEffect(() => {
     if (submitStatus === 'correct') {
       playCorrectSound();
     } else if (submitStatus === 'error') {
-      // Catatan: Suara error di sini hanya akan diputar jika
-      // pengguna mengirimkan teks yang SALAH.
       playErrorSound();
     }
-    // Reset status setelah diputar
     setSubmitStatus(null); 
   }, [submitStatus]);
 
-
-  // =========================================================================
-  // HANDLER: Submit Input
-  // (Logic ini tetap sama, hanya memicu setSubmitStatus)
-  // =========================================================================
   const handleSubmit = (e) => {
     e.preventDefault();
     const trimmedInput = input.trim();
     
     if (trimmedInput) {
       onSubmit(trimmedInput);
-      
-      // Tentukan status submit untuk memicu suara
       if (trimmedInput === targetText) {
         setSubmitStatus('correct');
       } else {
@@ -72,8 +46,6 @@ export default function TypingInput({ onSubmit, targetText }) {
     }
   };
 
-  // ... (Sisa fungsi render dan perhitungan tetap sama)
-  // Fungsi untuk render target text dengan warna berdasarkan ketikan
   const renderTargetText = () => {
     return Array.from(targetText).map((char, index) => {
       let className = "text-gray-400"; 
@@ -100,7 +72,6 @@ export default function TypingInput({ onSubmit, targetText }) {
     setTypedText(value);
   };
 
-  // Hitung persentase ketikan benar
   const calculateAccuracy = () => {
     if (typedText.length === 0) return 0;
     
@@ -119,7 +90,6 @@ export default function TypingInput({ onSubmit, targetText }) {
 
   return (
     <div className="w-full bg-white p-4 border-t-2 border-gray-300 bg-gradient-to-t from-white to-gray-50">
-      {/* Target Text Display */}
       <div className="mb-4 p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border-2 border-dashed border-purple-200 shadow-sm">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
@@ -136,18 +106,13 @@ export default function TypingInput({ onSubmit, targetText }) {
             </div>
           )}
         </div>
-        
-        {/* Target Text dengan Highlight */}
         <div className="font-mono text-lg leading-8 whitespace-pre-wrap break-words min-h-[40px] bg-white/50 rounded-lg p-2 border">
           {renderTargetText()}
-          
-          {/* Cursor blinking di akhir */}
           {!isComplete && typedText.length < targetText.length && (
             <span className="ml-1 w-1 h-6 bg-purple-500 animate-pulse inline-block align-middle"></span>
           )}
         </div>
         
-        {/* Progress Bar */}
         <div className="mt-2">
           <div className="w-full bg-gray-200 rounded-full h-2 border">
             <div 
@@ -164,8 +129,6 @@ export default function TypingInput({ onSubmit, targetText }) {
           </div>
         </div>
       </div>
-
-      {/* Input Form */}
       <form onSubmit={handleSubmit} className="flex gap-3">
         <div className="flex-1 relative">
           <input
@@ -186,8 +149,6 @@ export default function TypingInput({ onSubmit, targetText }) {
           <FaPaperPlane className="text-lg" />
         </button>
       </form>
-
-      {/* Quick Stats */}
       <div className="flex justify-between items-center mt-3 text-sm text-gray-600">
         
         {isComplete && accuracy === 100 && (

@@ -17,13 +17,13 @@ export const scenarios = [
       {
         sender: "pacar",
         text: "Tapi aku liat kamu online!",
-        expected: "Aku cuma gak tahu harus ngomong apa waktu itu",
+        expected: "Aku cuman gak tahu harus ngomong apa waktu itu",
         timeLimit: 25,
       },
       {
         sender: "pacar",
         text: "Jadi kamu udah bosen sama aku?",
-        expected: "Enggak, aku cuma pengen sendiri dulu, maaf ya",
+        expected: "Enggak, bukan begitu",
         timeLimit: 15,
       },
        {

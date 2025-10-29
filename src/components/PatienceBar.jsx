@@ -1,4 +1,4 @@
-// components/PatienceBar.js
+
 import React from 'react';
 
 export default function PatienceBar({ patience }) {

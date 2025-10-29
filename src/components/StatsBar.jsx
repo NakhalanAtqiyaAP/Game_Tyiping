@@ -1,4 +1,3 @@
-// components/StatsBar.js
 import React from 'react';
 
 export default function StatsBar({ score, timer, patience }) {
@@ -15,30 +14,26 @@ export default function StatsBar({ score, timer, patience }) {
   };
 
   return (
-    <div className="w-full bg-gradient-to-r from-yellow-50 to-orange-50 border-b-2 border-black px-4 py-3">
+    <div className="w-full bg-gradient-to-r from-yellow-100 to-orange-100 border-b-2 border-black px-4 py-3 relative z-20">
       <div className="flex justify-between items-center mb-2">
         {/* Skor */}
-        <div className="flex items-center gap-2">
-          
-            <span className="font-bold text-black text-sm">🏆 Skor: </span>
-            <span className="font-extrabold text-[#6A0DAD]">{score}</span>
-          
+        <div className="flex items-center gap-2 bg-white/80 px-3 py-1 rounded-lg border border-black/20">
+          <span className="font-bold text-black text-sm">🏆 Skor: </span>
+          <span className="font-extrabold text-[#6A0DAD]">{score}</span>
         </div>
 
         {/* Timer */}
-        <div className="flex items-center gap-2">
-          
-            <span className="font-bold text-black text-sm">⏱️ </span>
-            <span className={`font-extrabold text-sm ${getTimerColor(timer)}`}>
-              {timer}s
-            </span>
-          
+        <div className="flex items-center gap-2 bg-white/80 px-3 py-1 rounded-lg border border-black/20">
+          <span className="font-bold text-black text-sm">⏱️ </span>
+          <span className={`font-extrabold text-sm ${getTimerColor(timer)}`}>
+            {timer}s
+          </span>
         </div>
       </div>
 
       {/* Patience Bar */}
       <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2 min-w-[120px]">
+        <div className="flex items-center gap-2 min-w-[120px] bg-white/80 px-2 py-1 rounded-lg border border-black/20">
           <span className="text-xs font-bold text-gray-700 whitespace-nowrap">❤️ Kesabaran:</span>
           <span className="text-xs font-bold text-gray-700">{patience}%</span>
         </div>
