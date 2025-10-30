@@ -32,7 +32,7 @@ const levels = [
     difficulty: "Sulit",
     timeMultiplier: 0.6,
     patienceDrain: 1.5,
-    scoreMultiplier: 2.0,
+    scoreMultiplier: 1.0,
     locked: false,
     scenarioId: 3
   },
@@ -43,7 +43,7 @@ const levels = [
     difficulty: "Expert",
     timeMultiplier: 0.5,
     patienceDrain: 2.0,
-    scoreMultiplier: 3.0,
+    scoreMultiplier: 1.0,
     locked: false,
     scenarioId: 4
   },
@@ -54,7 +54,7 @@ const levels = [
     difficulty: "Impossible",
     timeMultiplier: 0.4,
     patienceDrain: 2.5,
-    scoreMultiplier: 5.0,
+    scoreMultiplier: 1.0,
     locked: false,
     scenarioId: 5
   },
@@ -65,7 +65,7 @@ const levels = [
     difficulty: "Romantis",
     timeMultiplier: 1.2,
     patienceDrain: 0.5,
-    scoreMultiplier: 10.0,
+    scoreMultiplier: 1.0,
     locked: false,
     scenarioId: 6
   }
