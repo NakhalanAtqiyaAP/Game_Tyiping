@@ -155,7 +155,18 @@ export default function LevelSelector({ currentLevel, onLevelSelect, playerStats
             </p>
 
             {/* Level Stats */}
-            <div className="grid grid-cols-3 gap-2 text-xs">
+            
+        <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="text-center bg-blue-50 rounded p-2 border border-blue-200 shadow-sm">
+                <div className="font-bold text-blue-700">⏱️ Waktu</div>
+                <div className="text-lg font-extrabold text-blue-800">{level.timeMultiplier || 1}x</div>
+            </div>
+            <div className="text-center bg-red-50 rounded p-2 border border-red-200 shadow-sm">
+                <div className="font-bold text-red-700">❤️ Kesabaran</div>
+                <div className="text-lg font-extrabold text-red-800">{level.patienceDrain || 1}x</div>
+            </div>
+        </div>
+            {/* <div className="grid grid-cols-3 gap-2 text-xs">
               <div className="text-center bg-blue-50 rounded p-1">
                 <div className="font-bold text-blue-700">⏱️ Waktu</div>
                 <div className="text-blue-800">{level.timeMultiplier}x</div>
@@ -168,7 +179,7 @@ export default function LevelSelector({ currentLevel, onLevelSelect, playerStats
                 <div className="font-bold text-green-700">🏆 Skor</div>
                 <div className="text-green-800">{level.scoreMultiplier}x</div>
               </div>
-            </div>
+            </div> */}
 
             {/* Locked Message */}
             {/* {level.locked && (
