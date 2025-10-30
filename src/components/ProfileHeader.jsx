@@ -1,4 +1,3 @@
-// components/ProfileHeader.js - Perbaikan dengan shadow text
 import React from 'react';
 
 export default function ProfileHeader({ profile, isTyping }) {
@@ -6,13 +5,13 @@ export default function ProfileHeader({ profile, isTyping }) {
     <div className="flex items-center gap-3 p-4 text-white relative z-30">
       <div className="relative">
         <img
-          src="https://i.pinimg.com/originals/f0/00/53/f00053d3b96afd3e59389da0840050fc.jpg"
+          src={profile.avatar} 
           alt={profile.name}
           className="w-12 h-12 rounded-full border-2 border-white shadow-lg"
         />
         <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
       </div>
-      
+
       <div className="flex-1">
         <h2 className="font-bold text-lg drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">{profile.name}</h2>
         <div className="flex items-center gap-2">
