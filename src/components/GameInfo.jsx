@@ -17,7 +17,7 @@ export default function GameInfoFooter() {
         Ketik dengan tepat!
         </li>
         <li>
-        Sayangi pacaramu!
+        Sayangi pacarmu!
         </li>
         <li>
         Kalo ga punya pacar, sayangi dirimu sendiri :3
