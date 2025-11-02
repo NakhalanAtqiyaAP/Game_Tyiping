@@ -45,7 +45,7 @@ export const scenarios = [
       {
         sender: "pacar",
         text: "Aih malah gombal, humph Baka! >///<",
-        expected: "I Love You {name}!", 
+        expected: "Hehe I Love You {name}!", 
         timeLimit: 10,
       },
       {
